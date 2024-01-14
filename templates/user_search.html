@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User_search
+{% endblock %}
+
+{% block main %}
+    <form action="/borrow" method="post">
+        <div class="form-group">
+            <input autocomplete="off" name="username" class = "form-control" placeholder="Username" type="text">
+            <input autocomplete="off" name="profession" class = "form-control" placeholder="Profession" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Follow</button>
+    </form>
+{% endblock %}
