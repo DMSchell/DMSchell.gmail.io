@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    goToUserpage
+{% endblock %}
+
+{% block main %}
+    <!-- this is the same as userpage but focussing on someone else-->
+        {% if session["user_follows"] == session["follow_name"] %}
+            <button class="btn btn-primary" onclick="unfollow({{session["follow_name"]}})" type="submit">Followed</button>
+        {% else %}
+            <button class="btn btn-primary" onclick="follow({{session["follow_name"]}})" type="submit">Follow</button>
+        {% endif %}
+        <div class = "vihaan_table">
+            <main class="container p-5">
+            <table class = "table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ session["follow_name"] }}'s about me</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ session["follow_about"] }}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>{{ session["follow_name"] }}'s profession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ session["follow_profession"] }}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>{{ session["follow_name"] }}'s academic accomplishments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>school most likely</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+{% endblock %}
