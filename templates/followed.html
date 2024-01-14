@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Followed
+{% endblock %}
+
+{% block main %}
+    <div class = "vihaan_table">
+        <main class="container p-5">
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>Followed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- For now you can only follow one person -->
+                <tr>
+                    <td><a name="username" href="/goToUserpage?name={{ session["user_followed"] }}">Dr. P. Lastic</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
