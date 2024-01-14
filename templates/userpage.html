@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Userpage
+{% endblock %}
+
+{% block main %}
+    <form action="/userpage" method="post">
+        <div class="form-group">
+            <input autocomplete="off" name="About me" class = "form-control" placeholder="About me" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Update userpage</button>
+        <div class = "vihaan_table">
+            <main class="container p-5">
+            <table class = "table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ session["user_name"] }}'s about me</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ session["user_profession"] }}'s about me</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>{{ session["user_name"] }}'s profession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ session["user_about"] }}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>{{ session["user_name"] }}'s academic accomplishments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>school</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </form>
+{% endblock %}
