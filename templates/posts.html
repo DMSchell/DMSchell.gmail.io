@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Posts
+{% endblock %}
+
+{% block main %}
+        <form action="/results" method="post">
+            <div class="form-group">
+                <input class="form-control" name="search" autocomplete = "off" placeholder="Search title or author" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        <div class = "vihaan_table">
+            <main class="container p-5">
+            <table class = "table table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Likes</th>
+                        <th>Poster</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through  to display info in this table -->
+                    {% for post in posts %}
+
+                        <tr>
+                            {% if post["image"] %}
+                                <td><img src={{ post["image"] }} alt="" border=3 height=100 width=100></img></td>
+                            {% endif %}
+                            <td>{{ post["description"] }}</td>
+                            <td>{{ post["likes"] }}</td>
+                            <td><a name="username" href="/goToUserpage?name={{ post["poster"] }}">{{ post["poster"] }}</a></td>
+                        </tr>
+                        <tr>
+                            {% for comment in comments %}
+
+                                    <td>{{comment["text"]}}</td>
+                                    <td>{{comment["likes"]}}</td>
+                                    <td>{{comment["poster"]}}</td>
+                                
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %}
