@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="form-group">
+            <input autocomplete="off" class = "form-control" name="Image Address" placeholder="Image Address (optional)" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" name="Subtext" class = "form-control" placeholder="Subtext" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}
